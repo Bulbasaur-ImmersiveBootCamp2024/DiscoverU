@@ -9,18 +9,22 @@ export function ShowActivity({ profile, setFlick, handleSwipeType, lesson }) {
       setFlick(false);
       console.log("呼ばれてますよ");
       setTimeout(() => {
-        setFlick(true);
+        setFlick(true); // 元に戻す
         handleSwipeType("なし");
-      }, 1000);
+      }, 0);
     },
+    // onSwipedRight: () => {
+    //   handleSwipeType("right");
+    //   setFlick(false);
+    //   console.log("呼ばれてますよ右");
+    //   setTimeout(() => {
+    //     setFlick(true); // 元に戻す
+    //     handleSwipeType("なし");
+    //   }, 1000);
     onSwipedRight: () => {
       handleSwipeType("right");
       setFlick(false);
       console.log("呼ばれてますよ右");
-      setTimeout(() => {
-        setFlick(true); // 元に戻す
-        handleSwipeType("なし");
-      }, 1000);
     },
   });
 
@@ -40,7 +44,7 @@ export function ShowActivity({ profile, setFlick, handleSwipeType, lesson }) {
       <div className="activity-box" {...handlers}>
         <img
           className="activity-image"
-          src="image/ike.png"
+          src="image/test.gif"
           alt="生け花"
           {...handlers}
         />

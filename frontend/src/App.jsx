@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import ExtButton from "./components/extButton";
 import { Login } from "./Login";
 import { ShowActivity } from "./ShowActivity";
+import { Reservation } from "./Reservation";
 
 import "./App.css";
 
@@ -11,6 +12,7 @@ export default function App() {
   const [login, setLogin] = useState(false);
   const [profile, setProfile] = useState(null);
   const [lesson, setLesson] = useState([]);
+  const [start, setStart] = useState(false);
 
   async function getPlans() {
     try {
@@ -48,19 +50,25 @@ export default function App() {
 
   return (
     <>
-      {/* <button onClick={() => {
-        getPlans();
-      }}>
-        プランを取得
-      </button> */}
-      {login ? (
+      {!start ? (
+        <div className="start-screen">
+          <h1>Tap to Start</h1>
+          <button onClick={() => setStart(true)}>
+            ボタンを押して新たな旅に出かけよう
+          </button>
+        </div>
+      ) : !flick ? ( // flickがfalseならReservationを表示
+        <Reservation lesson={lesson} />
+      ) : login ? (
+        // flickがtrueかつloginがtrueならShowActivityを表示
         <ShowActivity
           profile={profile}
           lesson={lesson}
-          setFlick={setFlick}
+          setFlick={setFlick} // flick状態を更新する関数を渡す
           handleSwipeType={handleSwipeType}
         />
       ) : (
+        // loginがfalseならLoginを表示
         <Login
           profile={profile}
           handleLogin={handleLogin}
