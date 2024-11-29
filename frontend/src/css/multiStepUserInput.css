@@ -74,7 +74,7 @@ body {
 .confirmation-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 1px;
 }
 
 .confirmation-item {
@@ -111,7 +111,7 @@ body {
 
 .input-container {
   position: absolute;
-  top: 49%;
+  top: 46%;
   width: 90%;
   padding: 0;
   text-align: center;
@@ -156,7 +156,7 @@ body {
 .slide-bar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: flex-start; */
   width: 100%;
   padding: 0;
   margin: 0;
@@ -167,7 +167,7 @@ body {
   font-size: 14px;
   font-weight: bold;
   color: #333;
-  margin: 0;
+  margin: 10px;
   text-align: left;
   flex: 1;
 }
@@ -176,7 +176,7 @@ body {
   font-size: 14px;
   font-weight: bold;
   color: #333;
-  margin: 0;
+  margin: 10px;
   text-align: right;
   flex: 1;
 }
@@ -231,7 +231,7 @@ body {
   height: 10px;
   background: transparent;
   position: relative;
-  top: 15%;
+  top: -15%;
   transform: translateY(-50%);
   z-index: 2;
 }
