@@ -42,13 +42,13 @@ export function SwipeLessons({
 
   const startAnimation = () => {
     if (card1Ref.current) {
-      card1Ref.current.style.animation = "cardrotate 5s ease-in-out forwards";
+      card1Ref.current.style.animation = "cardrotate 4s ease-in-out forwards";
     }
     if (card2Ref.current) {
-      card2Ref.current.style.animation = "cardrotate 5s ease-in-out forwards";
+      card2Ref.current.style.animation = "cardrotate 4s ease-in-out forwards";
     }
     if (card3Ref.current) {
-      card3Ref.current.style.animation = "cardrotate 5s ease-in-out forwards";
+      card3Ref.current.style.animation = "cardrotate 4s ease-in-out forwards";
     }
   };
 
@@ -158,35 +158,34 @@ export function SwipeLessons({
     <>
       {number < limit ? (
         <div>
+          <div className="profile-info">
+            <center>
+              <form className="set-calendar">
+                開始日：
+                <label className="calendar-design">
+                  <input
+                    className="input date-style grayout"
+                    type="date"
+                    value={startDate}
+                    readOnly
+                  />
+                </label>
+                <br />
+                終了日：
+                <label className="calendar-design">
+                  <input
+                    className="input date-style grayout"
+                    type="date"
+                    value={endDate}
+                    readOnly
+                  />
+                </label>
+              </form>
+            </center>
+            <br />
+          </div>
           {isTutorial ? (
             <>
-              <div className="profile-info">
-                <center>
-                  <form className="set-calendar">
-                    開始日：
-                    <label className="calendar-design">
-                      <input
-                        className="input date-style grayout"
-                        type="date"
-                        value={startDate}
-                        readOnly
-                      />
-                    </label>
-                    <br />
-                    終了日：
-                    <label className="calendar-design">
-                      <input
-                        className="input date-style grayout"
-                        type="date"
-                        value={endDate}
-                        readOnly
-                      />
-                    </label>
-                  </form>
-                </center>
-                <br />
-              </div>
-              <br />
               <div className="lesson-box" {...handlers}>
                 <ImageGallery
                   imgPaths={["./images/dico.png"]}
@@ -209,23 +208,6 @@ export function SwipeLessons({
             </>
           ) : (
             <>
-              <div className="profile-info">
-                <center>
-                  <form className="set-calendar">
-                    開始日：
-                    <label className="calendar-design">
-                      <input type="date" value={startDate} />
-                    </label>
-                    <br />
-                    終了日：
-                    <label className="calendar-design">
-                      <input type="date" value={endDate} />
-                    </label>
-                  </form>
-                </center>
-                <br />
-              </div>
-              <br />
               <div className="lesson-box" {...handlers}>
                 <ImageGallery
                   imgPaths={lesson[number].imagePath}
@@ -287,26 +269,11 @@ export function SwipeLessons({
           </div>
         </div>
       ) : (
-        <center>
-          <div
-            style={{
-              position: "absolute",
-              top: "12%",
-              left: "0%",
-              width: "100%",
-              maxWidth: "500px",
-              minWidth: "200px",
-              minHeight: "100px",
-              padding: "20px",
-              textAlign: "center",
-              backgroundColor: "#fff",
-              borderRadius: "8px",
-              boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
-            }}
-          >
+        <center className="userInputMain">
+          <div className="chat-container">
             <p
               style={{
-                fontSize: "16px",
+                fontSize: "15px",
                 fontWeight: "bold",
                 textAlign: "center",
                 margin: "0 auto", // 中央揃え
@@ -341,14 +308,7 @@ export function SwipeLessons({
           <img
             src={"./images/dico.png"}
             alt="キャラクター"
-            style={{
-              width: "180px",
-              height: "180px",
-              marginBottom: "20px",
-              position: "absolute",
-              left: "27%",
-              top: "30%",
-            }}
+            className="character-image-recommend-lesson"
           />
           <button onClick={returnFirstCard} className="button-return">
             選びなおす
