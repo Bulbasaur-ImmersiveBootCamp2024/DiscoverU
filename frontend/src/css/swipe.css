@@ -55,7 +55,7 @@ body {
 .lesson-box {
   width: 80%;
   max-width: 400px;
-  background: linear-gradient(to top, #f39867 0%, #f39867 30%, #ffe078 100%);
+  background: linear-gradient(to top, #e07840 0%, #df763e 30%, #ffe078 100%);
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -177,9 +177,9 @@ h1 {
   height: 100%;
   backface-visibility: hidden;
   background: #00b7ea;
-  background: -moz-linear-gradient(left, #f39867 0%, #f3b667 100%);
-  background: -webkit-linear-gradient(left, #f39867 0%, #f3b667 100%);
-  background: linear-gradient(to right, #f39867 0%, #f3b667 100%);
+  background: -moz-linear-gradient(left, #e07840 0%, #f3b667 100%);
+  background: -webkit-linear-gradient(left, #e07840 0%, #f3b667 100%);
+  background: linear-gradient(to right, #e07840 0%, #f3b667 100%);
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f39867', endColorstr='#6aaade', GradientType=1);
   border-radius: 10px;
   border-bottom: 3px solid rgba(0, 0, 0, 0.5);
