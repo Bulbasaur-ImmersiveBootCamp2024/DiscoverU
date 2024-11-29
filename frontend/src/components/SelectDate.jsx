@@ -11,7 +11,12 @@ export function SelectDate({
   fetchPlans,
 }) {
   const today = new Date();
-  const defaultStartDate = today
+  const threeDaysLater = new Date();
+  threeDaysLater.setDate(today.getDate() + 3);
+  const twoWeeksLater = new Date();
+  twoWeeksLater.setDate(today.getDate() + 10);
+
+  const formattedToday = today
     .toLocaleDateString("ja-JP", {
       year: "numeric",
       month: "2-digit",
@@ -19,18 +24,27 @@ export function SelectDate({
     })
     .split("/")
     .join("-");
-  let tommorow = new Date();
-  tommorow.setDate(tommorow.getDate() + 1);
-  const defaultEndDate = tommorow.toLocaleDateString("ja-JP", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  })
-  .split("/")
-  .join("-");
-  
-  const [inputStartDate, setInputStartDate] = useState(defaultStartDate);
-  const [inputEndDate, setInputEndDate] = useState(defaultEndDate);
+
+  const formattedTwoWeeksLater = twoWeeksLater
+    .toLocaleDateString("ja-JP", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    })
+    .split("/")
+    .join("-");
+
+  const formattedThreeDaysLater = threeDaysLater
+    .toLocaleDateString("ja-JP", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    })
+    .split("/")
+    .join("-");
+
+  const [inputStartDate, setInputStartDate] = useState(formattedToday);
+  const [inputEndDate, setInputEndDate] = useState(formattedTwoWeeksLater);
   const [dateCheck, setDateCheck] = useState(false);
   const [readyToFetch, setReadyToFetch] = useState(false);
 
@@ -54,9 +68,6 @@ export function SelectDate({
     if (dateStartDate <= dateEndDate) {
       setStartDate(inputStartDate);
       setEndDate(inputEndDate);
-      fetchPlans();
-      setInputDate(true);
-      setP2Swipe(true);
       setDateCheck(false);
       setReadyToFetch(true);
     } else {
@@ -64,19 +75,15 @@ export function SelectDate({
     }
   }
   return (
-    <div
-      className="selectDateMain"
-    >
-      { dateCheck ? (
+    <div className="selectDateMain">
+      {dateCheck ? (
         <div className="chat-container">
           <p className="chat-content">
             <span className="chat-main">
               終了日は開始日より後の日付にしてね！
             </span>
             <br />
-            <span className="chat-secondary">
-              正しい日付を入力してね！
-            </span>
+            <span className="chat-secondary">正しい日付を入力してね！</span>
           </p>
         </div>
       ) : (
@@ -86,50 +93,48 @@ export function SelectDate({
               レッスンを受講したい日付を入力してね！
             </span>
             <br />
-            <span className="chat-secondary">
-              開始日と終了日を入力してね！
-            </span>
+            <span className="chat-secondary">開始日と終了日を入力してね！</span>
           </p>
         </div>
       )}
-        <form className="set-calendar1">
-          開始日：
-          <label className="calendar-design">
-            <input
-              type="date"
-              id="startDate"
-              name="startDate"
-              value={inputStartDate}
-              onChange={(e) => setInputStartDate(e.target.value)}
-              className="input date-style"
-            />
-          </label>
-          <br />
-          終了日：
-          <label className="calendar-design">
-            <input
-              type="date"
-              id="startDate"
-              name="startDate"
-              value={inputEndDate}
-              onChange={(e) => setInputEndDate(e.target.value)}
-              className="input date-style"
-            />
-          </label>
-        </form>
-        <img
-          src={"./images/dico.png"}
-          alt="キャラクター"
-          className="character-image"
-        />
+      <form className="set-calendar1">
+        開始日：
+        <label className="calendar-design">
+          <input
+            type="date"
+            id="startDate"
+            name="startDate"
+            value={inputStartDate}
+            onChange={(e) => setInputStartDate(e.target.value)}
+            className="input date-style"
+            min={formattedToday} // 最小日付
+            max={formattedThreeDaysLater} // 最大日付
+          />
+        </label>
         <br />
-        {/* 中沢変更 */}
-        <button
-          onClick={setDate}
-          className="button-next"
-        >
-          次へ
-        </button>
+        終了日：
+        <label className="calendar-design">
+          <input
+            type="date"
+            id="startDate"
+            name="startDate"
+            value={inputEndDate}
+            onChange={(e) => setInputEndDate(e.target.value)}
+            className="input date-style"
+            min={formattedTwoWeeksLater} // 最小日付
+          />
+        </label>
+      </form>
+      <img
+        src={"./images/dico.png"}
+        alt="キャラクター"
+        className="character-image"
+      />
+      <br />
+      {/* 中沢変更 */}
+      <button onClick={setDate} className="button-next">
+        次へ
+      </button>
     </div>
   );
 }
