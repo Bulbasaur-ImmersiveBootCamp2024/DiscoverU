@@ -48,16 +48,11 @@ export function ReservationPopular({
     <>
       <h1>以下のレッスンを予約しました！</h1>
       <div>
-        {/* <img className="activity-image" src="image/ike.png" alt="生け花" /> */}
-        <div>
-          {/* <p>講座番号：{lesson[0][0].store_id}</p> */}
-          <p>{popularLesson[lessonNumber].title}</p>
-          <p>{popularLesson[lessonNumber].description}</p>
-          <div>
-            開催日時：
-            {convertFormatDatetimeForLesson(popularLesson[lessonNumber])}
-            場所：{popularLesson[lessonNumber].location}
-          </div>
+        <div class="box-result">
+            <div class="box-title">{popularLesson[lessonNumber].title}</div>
+            <p>概要：{popularLesson[lessonNumber].description}</p>
+            <p>開催日時：{convertFormatDatetimeForLesson(popularLesson[lessonNumber])}</p>
+            <p>場所：{popularLesson[lessonNumber].location}</p>
         </div>
         <div>
           <center>

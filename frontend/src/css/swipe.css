@@ -163,7 +163,7 @@ h1 {
 
 #card {
   width: 350px;
-  height: 200px;
+  height: 180px;
   color: #fff;
   border-radius: 10px;
   transform-style: preserve-3d;
@@ -306,4 +306,22 @@ h1 {
   left: 50%;
   transform: translateX(-50%);
   object-fit: cover;
+}
+
+.box-result {
+  margin: 2em 0;
+  background: #dcefff;
+}
+.box-result .box-title {
+  font-size: 1.2em;
+  background: #5fb3f5;
+  padding: 4px;
+  text-align: center;
+  color: #FFF;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+}
+.box-result p {
+  padding: 15px 20px;
+  margin: 0;
 }

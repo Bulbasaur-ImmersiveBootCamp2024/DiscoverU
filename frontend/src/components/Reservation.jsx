@@ -53,15 +53,11 @@ export function Reservation({
     <>
       <h1>予約を確定しますが、よろしいでしょうか？</h1>
       <div>
-        {/* <img className="activity-image" src="image/ike.png" alt="生け花" /> */}
-        <div>
-          {/* <p>講座番号：{lesson[0][0].store_id}</p> */}
-          <p>{lesson[lessonNumber].title}</p>
-          <p>{lesson[lessonNumber].description}</p>
-          <p>
-            開催日時：{convertFormatDatetimeForLesson(lesson[lessonNumber])}
-          </p>
-          <p>場所：{lesson[lessonNumber].location}</p>
+        <div class="box-result">
+            <div class="box-title">{lesson[lessonNumber].title}</div>
+            <p>概要：{lesson[lessonNumber].description}</p>
+            <p>開催日時：{convertFormatDatetimeForLesson(lesson[lessonNumber])}</p>
+            <p>場所：{lesson[lessonNumber].location}</p>
         </div>
         <div>
           <center>
