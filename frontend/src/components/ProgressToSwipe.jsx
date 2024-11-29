@@ -1,7 +1,13 @@
 import React from "react";
 import "../css/multiStepUserInput.css"; // 必要に応じてCSSファイルを調整してください
 
-export function ProgressToSwipe({ profile, lesson, startDate, endDate, onComplete }) {
+export function ProgressToSwipe({
+  profile,
+  lesson,
+  startDate,
+  endDate,
+  onComplete,
+}) {
   // console.log("ProgressToSwipeが表示されました", { profile, lesson, startDate, endDate }); // デバッグ用
 
   const handleNext = () => {
@@ -10,28 +16,14 @@ export function ProgressToSwipe({ profile, lesson, startDate, endDate, onComplet
   };
 
   return (
-    <div
-      style={{
-        textAlign: "center",
-        width: "100%",
-        height: "100vh", // ビューポート全体の高さ
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center", // 縦方向の中央揃え
-        alignItems: "center", // 横方向の中央揃え
-        // backgroundColor: "#fdf5e6", // 背景色（例: クリーム色）
-      }}
-    >
-      
+    <div className="userInputMain">
       {/* メッセージ */}
       <div className="chat-container">
         <p className="chat-content">
-          <span className="chat-main">
-          よし、じゃあ早速レッスンを探そう！
-          </span>
+          <span className="chat-main">よし、じゃあ早速レッスンを探そう！</span>
           <br />
           <span className="chat-secondary">
-          どうやって探すか、説明したほうがいいかな？
+            どうやって探すか、説明したほうがいいかな？
           </span>
         </p>
       </div>
@@ -44,10 +36,7 @@ export function ProgressToSwipe({ profile, lesson, startDate, endDate, onComplet
       />
 
       {/* ボタン */}
-      <button
-        onClick={handleNext}
-        className="button-next"
-      >
+      <button onClick={handleNext} className="button-next">
         レッスンを探す
       </button>
     </div>
