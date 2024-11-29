@@ -165,7 +165,12 @@ const addisionalQuestions = [
 //   },
 // ];
 
-export function UserInputForMultiStep({ handleLogin, sendFormData, setUserId, userId }) {
+export function UserInputForMultiStep({
+  handleLogin,
+  sendFormData,
+  setUserId,
+  userId,
+}) {
   const host = process.env.REACT_APP_HOSTNAME || "98.82.11.196";
 
   const mock = {
@@ -198,7 +203,7 @@ export function UserInputForMultiStep({ handleLogin, sendFormData, setUserId, us
 
   const [errorMessage, setErrorMessage] = useState("");
   const [currentPage, setCurrentPage] = useState("userBaseQuestions");
-  const [formData, setFormData] = useState(mock);
+  const [formData, setFormData] = useState(honban);
   const [currentStep, setCurrentStep] = useState(0);
 
   function navigateToUserAddisionalQuestions() {
@@ -250,16 +255,19 @@ export function UserInputForMultiStep({ handleLogin, sendFormData, setUserId, us
 
       // console.log(formatedAnswer);
 
-      const responseAnswer = await fetch(`http://${host}:3000/api/user_answer`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user_id: userId,
-          user_answer: formatedAnswer,
-        }),
-      });
+      const responseAnswer = await fetch(
+        `http://${host}:3000/api/user_answer`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            user_id: userId,
+            user_answer: formatedAnswer,
+          }),
+        }
+      );
       if (!responseAnswer.ok) {
         throw new Error(`HTTP error! Status: ${responseAnswer.status}`);
       }
