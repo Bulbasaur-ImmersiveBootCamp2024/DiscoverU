@@ -79,8 +79,7 @@ export function MultiStepUserInput({
                         className="range-tick-disabled"
                         style={{
                           left: `${i * 10}%`,
-                          visibility:
-                            i === 0 || i === 10 ? "hidden" : "visible",
+                          visibility: i === 0 || i === 10 ? "hidden" : "visible",
                         }}
                       ></div>
                     ))}
@@ -108,11 +107,7 @@ export function MultiStepUserInput({
               </label>
               <span className="confirmation-value">
                 {question.type === "select" && question.options.values
-                  ? question.options.keys[
-                      question.options.values.indexOf(
-                        Number(formData[question.name])
-                      )
-                    ]
+                  ? question.options.keys[question.options.values.indexOf(Number(formData[question.name]))]
                   : formData[question.name]}
               </span>
             </div>
@@ -139,23 +134,12 @@ export function MultiStepUserInput({
           <label htmlFor={inputId} className="label">
             {step.label}
           </label>
-          <select
-            id={inputId}
-            name={step.name}
-            value={formData[step.name]}
-            onChange={handleChange}
-            className="input"
-          >
+          <select id={inputId} name={step.name} value={formData[step.name]} onChange={handleChange} className="input">
             <option value="" disabled>
               選択してください
             </option>
             {step.options.keys.map((option, index) => (
-              <option
-                key={index}
-                value={
-                  !step.options.values ? option : step.options.values[index]
-                }
-              >
+              <option key={index} value={!step.options.values ? option : step.options.values[index]}>
                 {option}
               </option>
             ))}
@@ -233,10 +217,7 @@ export function MultiStepUserInput({
       {currentStep !== questions.length && (
         <div className="progress-bar-container">
           <div className="progress-bar-background">
-            <div
-              className="progress-bar-fill"
-              style={{ width: `${progress}%` }}
-            />
+            <div className="progress-bar-fill" style={{ width: `${progress}%` }} />
           </div>
         </div>
       )}
@@ -252,21 +233,29 @@ export function MultiStepUserInput({
           </span>
           <br />
           <span className="chat-secondary">
-            {currentStep === questions.length
-              ? "質問はもう少しだけ続くよ！"
-              : currentTouch === 10
-              ? "そんなに構ってほしいの？ちょっとだけだよっ（パチッ）"
-              : currentTouch >= 5
-              ? "そんなにつんつんしないでよ～くすぐったい！"
-              : currentTouch >= 1
-              ? "ぼくのこと触っても先には進まないよ～"
-              : Array.isArray(questions[currentStep].label)
-              ? Number(currentAnswer) <= 0.3
-                ? `${questions[currentStep].characterLeftMessage}`
-                : Number(currentAnswer) >= 0.8
-                ? `${questions[currentStep].characterRightMessage}`
-                : `${questions[currentStep].characterMediumMessage}`
-              : `${renderCharacterSubMessage()}`}
+            {currentStep === questions.length ? (
+              "質問はもう少しだけ続くよ！"
+            ) : currentTouch === 10 ? (
+              <>
+                そんなに構ってほしいの？
+                <br />
+                ちょっとだけだよっ（パチッ）
+              </>
+            ) : currentTouch >= 5 ? (
+              "そんなにつんつんしないでよ～くすぐったい！"
+            ) : currentTouch >= 1 ? (
+              "ぼくのこと触っても先には進まないよ～"
+            ) : Array.isArray(questions[currentStep].label) ? (
+              Number(currentAnswer) <= 0.3 ? (
+                `${questions[currentStep].characterLeftMessage}`
+              ) : Number(currentAnswer) >= 0.8 ? (
+                `${questions[currentStep].characterRightMessage}`
+              ) : (
+                `${questions[currentStep].characterMediumMessage}`
+              )
+            ) : (
+              `${renderCharacterSubMessage()}`
+            )}
           </span>
         </p>
       </div>
@@ -283,21 +272,11 @@ export function MultiStepUserInput({
       {/* 入力 */}
       <div className="input-container">
         {/* 質問の入力欄 */}
-        {currentStep === questions.length
-          ? renderConfirmation()
-          : renderInput(questions[currentStep])}
+        {currentStep === questions.length ? renderConfirmation() : renderInput(questions[currentStep])}
       </div>
       {/* 次へボタン */}
-      <button
-        onClick={handleNext}
-        className="button-next"
-        disabled={currentAnswer === ""}
-      >
-        {currentStep === questions.length - 1
-          ? "確認画面へ"
-          : currentStep === questions.length
-          ? "完了"
-          : "次へ"}
+      <button onClick={handleNext} className="button-next" disabled={currentAnswer === ""}>
+        {currentStep === questions.length - 1 ? "確認画面へ" : currentStep === questions.length ? "完了" : "次へ"}
       </button>
     </div>
   );
