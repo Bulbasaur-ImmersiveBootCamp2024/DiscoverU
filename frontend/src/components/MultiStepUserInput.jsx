@@ -33,6 +33,7 @@ export function MultiStepUserInput({
     if (currentStep < questions.length) {
       setCurrentTouch(0);
       setCurrentStep(currentStep + 1);
+      setCurrentAnswer("");
     } else {
       //alert("送る処理が入る: " + JSON.stringify(formData, null, 2));
       finalCallback();
@@ -79,7 +80,8 @@ export function MultiStepUserInput({
                         className="range-tick-disabled"
                         style={{
                           left: `${i * 10}%`,
-                          visibility: i === 0 || i === 10 ? "hidden" : "visible",
+                          visibility:
+                            i === 0 || i === 10 ? "hidden" : "visible",
                         }}
                       ></div>
                     ))}
@@ -107,7 +109,11 @@ export function MultiStepUserInput({
               </label>
               <span className="confirmation-value">
                 {question.type === "select" && question.options.values
-                  ? question.options.keys[question.options.values.indexOf(Number(formData[question.name]))]
+                  ? question.options.keys[
+                      question.options.values.indexOf(
+                        Number(formData[question.name])
+                      )
+                    ]
                   : formData[question.name]}
               </span>
             </div>
@@ -134,12 +140,23 @@ export function MultiStepUserInput({
           <label htmlFor={inputId} className="label">
             {step.label}
           </label>
-          <select id={inputId} name={step.name} value={formData[step.name]} onChange={handleChange} className="input">
+          <select
+            id={inputId}
+            name={step.name}
+            value={formData[step.name]}
+            onChange={handleChange}
+            className="input"
+          >
             <option value="" disabled>
               選択してください
             </option>
             {step.options.keys.map((option, index) => (
-              <option key={index} value={!step.options.values ? option : step.options.values[index]}>
+              <option
+                key={index}
+                value={
+                  !step.options.values ? option : step.options.values[index]
+                }
+              >
                 {option}
               </option>
             ))}
@@ -217,7 +234,10 @@ export function MultiStepUserInput({
       {currentStep !== questions.length && (
         <div className="progress-bar-container">
           <div className="progress-bar-background">
-            <div className="progress-bar-fill" style={{ width: `${progress}%` }} />
+            <div
+              className="progress-bar-fill"
+              style={{ width: `${progress}%` }}
+            />
           </div>
         </div>
       )}
@@ -272,11 +292,21 @@ export function MultiStepUserInput({
       {/* 入力 */}
       <div className="input-container">
         {/* 質問の入力欄 */}
-        {currentStep === questions.length ? renderConfirmation() : renderInput(questions[currentStep])}
+        {currentStep === questions.length
+          ? renderConfirmation()
+          : renderInput(questions[currentStep])}
       </div>
       {/* 次へボタン */}
-      <button onClick={handleNext} className="button-next" disabled={currentAnswer === ""}>
-        {currentStep === questions.length - 1 ? "確認画面へ" : currentStep === questions.length ? "完了" : "次へ"}
+      <button
+        onClick={handleNext}
+        className="button-next"
+        disabled={currentAnswer === "" && currentStep !== questions.length}
+      >
+        {currentStep === questions.length - 1
+          ? "確認画面へ"
+          : currentStep === questions.length
+          ? "完了"
+          : "次へ"}
       </button>
     </div>
   );
