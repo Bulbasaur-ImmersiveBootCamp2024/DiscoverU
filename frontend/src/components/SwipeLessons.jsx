@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSwipeable } from "react-swipeable";
 import "../css/swipe.css";
+import "../css/multiStepUserInput.css";
 import { ImageGallery } from "./ImageGallery";
 import { convertFormatDatetimeForLesson } from "../utils/datetimeFormatter";
 
@@ -164,12 +165,22 @@ export function SwipeLessons({
                   <form className="set-calendar">
                     開始日：
                     <label className="calendar-design">
-                      <input type="date" value={startDate} readOnly />
+                      <input
+                        className="input date-style grayout"
+                        type="date"
+                        value={startDate}
+                        readOnly
+                      />
                     </label>
                     <br />
                     終了日：
                     <label className="calendar-design">
-                      <input type="date" value={endDate} readOnly />
+                      <input
+                        className="input date-style grayout"
+                        type="date"
+                        value={endDate}
+                        readOnly
+                      />
                     </label>
                   </form>
                 </center>
@@ -339,40 +350,10 @@ export function SwipeLessons({
               top: "30%",
             }}
           />
-          <button
-            onClick={returnFirstCard}
-            style={{
-              position: "absolute",
-              bottom: "15%",
-              left: "5%",
-              width: "90%",
-              padding: "10px",
-              backgroundColor: "#6AAADE",
-              color: "white",
-              border: "none",
-              borderradius: "5px",
-              fontsize: "16px",
-              cursor: "pointer",
-            }}
-          >
+          <button onClick={returnFirstCard} className="button-return">
             選びなおす
           </button>
-          <button
-            onClick={nextPopularCard}
-            style={{
-              position: "absolute",
-              bottom: "8%",
-              left: "5%",
-              width: "90%",
-              padding: "10px",
-              backgroundColor: "#f39867",
-              color: "white",
-              border: "none",
-              borderradius: "5px",
-              fontsize: "16px",
-              cursor: "pointer",
-            }}
-          >
+          <button onClick={nextPopularCard} className="button-popular">
             人気のレッスンへ
           </button>
         </center>

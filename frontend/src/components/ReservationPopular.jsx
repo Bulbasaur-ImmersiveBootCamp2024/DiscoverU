@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import { convertFormatDatetimeForLesson } from "../utils/datetimeFormatter";
+import "../css/swipe.css";
 
 export function ReservationPopular({
   popularLesson,
@@ -61,7 +62,7 @@ export function ReservationPopular({
         <div>
           <center>
             <button
-              className="button-deco"
+              className="button-return"
               onClick={() => handleResponse("OK")}
             >
               閉じる

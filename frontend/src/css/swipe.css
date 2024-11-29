@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'LINE Seed JP';
-  src: url('../fonts/WOFF2/LINESeedJP_OTF_Rg.woff2') format('woff2');
+  font-family: "LINE Seed JP";
+  src: url("../fonts/WOFF2/LINESeedJP_OTF_Rg.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
@@ -11,7 +11,7 @@ body {
 
 /* 基本的なレイアウト */
 .profile_info {
-  font-family: 'LINE Seed JP', 'Quicksand', sans-serif;
+  font-family: "LINE Seed JP", "Quicksand", sans-serif;
   background-color: rgb(124, 114, 84);
   color: black;
   display: flex;
@@ -55,7 +55,7 @@ body {
 .lesson-box {
   width: 80%;
   max-width: 400px;
-  background: linear-gradient(to bottom, #f39867 0%, #deba6a 50%, #6aaade 100%);
+  background: linear-gradient(to top, #f39867 0%, #f39867 30%, #ffe078 100%);
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -105,36 +105,6 @@ B:222 */
   margin-top: 0px;
   width: fit-content;
   padding: 12px 16px;
-  border-bottom: 2px solid #333333;
-  background-color: #fffcee;
-}
-.set-calendar::before {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  width: 15px;
-  height: 15px;
-  box-sizing: border-box;
-  background-color: #fffcee;
-  /* 背景色と同じ色を指定 */
-  rotate: 135deg;
-  translate: -50%;
-}
-.set-calendar::after {
-  content: "";
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  z-index: -1;
-  width: 15px;
-  height: 15px;
-  box-sizing: border-box;
-  border: 2px solid;
-  border-color: #333333 #333333 transparent transparent;
-  background-color: #ffffff;
-  rotate: 135deg;
-  translate: -50%;
 }
 
 /* .calendar-design {
@@ -206,9 +176,9 @@ h1 {
   height: 100%;
   backface-visibility: hidden;
   background: #00b7ea;
-  background: -moz-linear-gradient(left, #f39867 0%, #6aaade 100%);
-  background: -webkit-linear-gradient(left, #f39867 0%, #6aaade 100%);
-  background: linear-gradient(to right, #f39867 0%, #6aaade 100%);
+  background: -moz-linear-gradient(left, #f39867 0%, #f3b667 100%);
+  background: -webkit-linear-gradient(left, #f39867 0%, #f3b667 100%);
+  background: linear-gradient(to right, #f39867 0%, #f3b667 100%);
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f39867', endColorstr='#6aaade', GradientType=1);
   border-radius: 10px;
   border-bottom: 3px solid rgba(0, 0, 0, 0.5);
@@ -251,4 +221,116 @@ h1 {
     transform: rotateY(360deg);
     top: 0px;
   }
+}
+
+.chat-container {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  max-width: 500px;
+  min-width: 200px;
+  min-height: 10%;
+  padding: 2%;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 4px 10px 9px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-content {
+  height: 100%;
+}
+
+.chat-main {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow: hidden;
+}
+
+.chat-secondary {
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+  margin: 10px auto 0;
+  width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.button-popular {
+  position: absolute;
+  bottom: 4%;
+  left: 2.5%;
+  width: 95%;
+  padding: 12px;
+  background-color: #f39867;
+  color: white;
+  border: 2px solid #e87e4d;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: transform 0.1s, box-shadow 0.1s, background-color 0.1s;
+}
+
+.button-popular:active {
+  background-color: #e87e4d;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.15);
+  transform: translateY(4px);
+}
+
+.button-popular:disabled {
+  background-color: #d3d3d3;
+  border: 2px solid #666666;
+  cursor: not-allowed;
+}
+
+.button-return {
+  position: absolute;
+  bottom: 13%;
+  left: 2.5%;
+  width: 95%;
+  padding: 12px;
+  background-color: #6aaade;
+  color: white;
+  border: 2px solid #0099ff;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2), 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: transform 0.1s, box-shadow 0.1s, background-color 0.1s;
+}
+
+.button-retuen:active {
+  background-color: #0099ff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.15);
+  transform: translateY(4px);
+}
+
+.button-return:disabled {
+  background-color: #d3d3d3;
+  border: 2px solid #666666;
+  cursor: not-allowed;
+}
+
+.input.date-style.grayout {
+  appearance: none;
+
+  width: 100%;
+  background-color: #ddd;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-size: 16px;
 }

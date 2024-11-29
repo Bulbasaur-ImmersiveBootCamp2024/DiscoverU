@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import { convertFormatDatetimeForLesson } from "../utils/datetimeFormatter";
+import "../css/swipe.css";
 
 export function Reservation({
   lesson,
@@ -69,7 +70,7 @@ export function Reservation({
                 <tr>
                   <td>
                     <button
-                      className="button-deco"
+                      className="button-return"
                       onClick={() => handleResponse("NG")}
                     >
                       キャンセル
@@ -77,7 +78,7 @@ export function Reservation({
                   </td>
                   <td>
                     <button
-                      className="button-deco"
+                      className="button-popular"
                       onClick={() => handleResponse("OK")}
                     >
                       予約確定
