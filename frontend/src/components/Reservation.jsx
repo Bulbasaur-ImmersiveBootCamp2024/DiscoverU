@@ -70,18 +70,18 @@ export function Reservation({
                 <tr>
                   <td>
                     <button
-                      className="button-return"
-                      onClick={() => handleResponse("NG")}
-                    >
-                      キャンセル
-                    </button>
-                  </td>
-                  <td>
-                    <button
                       className="button-popular"
                       onClick={() => handleResponse("OK")}
                     >
                       予約確定
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      className="button-return"
+                      onClick={() => handleResponse("NG")}
+                    >
+                      キャンセル
                     </button>
                   </td>
                 </tr>

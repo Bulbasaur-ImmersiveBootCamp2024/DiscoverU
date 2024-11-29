@@ -169,6 +169,7 @@ h1 {
 }
 
 #card figure {
+  font-family: "LINE Seed JP", Quicksand, "Noto Sans JP", "Noto Sans";
   margin: 0;
   display: block;
   position: absolute;
@@ -186,6 +187,10 @@ h1 {
 
 #card figure h2 {
   margin: 20px;
+}
+
+#card figure p {
+  margin: 30px;
 }
 
 .front {
@@ -221,49 +226,6 @@ h1 {
     transform: rotateY(360deg);
     top: 0px;
   }
-}
-
-.chat-container {
-  position: absolute;
-  top: 10%;
-  width: 100%;
-  max-width: 500px;
-  min-width: 200px;
-  min-height: 10%;
-  padding: 2%;
-  text-align: center;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 4px 10px 9px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.chat-content {
-  height: 100%;
-}
-
-.chat-main {
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  margin: 0 auto;
-  width: 100%;
-  word-wrap: break-word;
-  white-space: normal;
-  overflow: hidden;
-}
-
-.chat-secondary {
-  font-size: 14px;
-  color: #555;
-  text-align: center;
-  margin: 10px auto 0;
-  width: 100%;
-  word-wrap: break-word;
-  white-space: normal;
 }
 
 .button-popular {
@@ -333,4 +295,14 @@ h1 {
   border-radius: 5px;
   cursor: pointer;
   background-size: 16px;
+}
+
+.character-image-recommend-lesson {
+  height: 30%;
+  margin-bottom: 20px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  object-fit: cover;
 }
